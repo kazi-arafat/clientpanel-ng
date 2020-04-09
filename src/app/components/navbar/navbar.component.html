@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-md bg-primary navbar-dark mb-4">
+    <div class="container">
+        <a routerLink="/" class="navbar-brand">Client Panel App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcollapsemain">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarcollapsemain">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a routerLink="/dashboard" class="nav-link"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"  *ngIf="!isLoggedIn && showRegister">
+                    <a routerLink="/register" class="nav-link"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
+                </li>
+                <li class="nav-item"  *ngIf="!isLoggedIn && showRegister">
+                    <a routerLink="/login" class="nav-link"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+                </li>
+                <li class="nav-item"  *ngIf="isLoggedIn">
+                    <a href="#" class="nav-link"><i class="fa fa-user" aria-hidden="true"></i> {{ loggedInUser }}</a>
+                </li>
+                <li class="nav-item"  *ngIf="isLoggedIn">
+                    <a routerLink="/settings" class="nav-link"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a>
+                </li>
+                <li class="nav-item" *ngIf="isLoggedIn">
+                    <a href="" (click)="onLogOutClick()" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

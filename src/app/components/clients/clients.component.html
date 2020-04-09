@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-6">
+    <h2><i class="fa fa-users"></i> Clients</h2>
+  </div>
+  <div class="col-md-6">
+    <h5 *ngIf="clients?.length > 0" class="text text-secondary text-right">
+      Total Owed: {{ totalOwed | currency: "INR" }}
+    </h5>
+  </div>
+</div>
+<hr>
+<table
+  class="table table-striped"
+  *ngIf="clients?.length > 0; else noClients"
+>
+  <thead class="thead-innverse">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Balance</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <td>{{ client.firstName + " " + client.lastName }}</td>
+      <td>{{ client.email }}</td>
+      <td>{{ client.balance | currency: "INR" }}</td>
+      <td>
+        <a
+          routerLink="client/details/{{ client.id }}"
+          class="btn btn-secondary btn-sm  float-left"
+          ><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+          Details</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noClients>
+  <img *ngIf="!contentLoaded"
+    class="rounded mx-auto d-block"
+    src="../../../../assets/img/spinner.gif"
+    alt="spinner"
+  />
+  <h5 *ngIf="contentLoaded">There are no clients to display.</h5>
+</ng-template>
+  

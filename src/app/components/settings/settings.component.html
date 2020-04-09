@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-6">
+        <a routerLink="/" class="btn btn-link">
+            <i class="fa fa-arrow-circle-o-left"></i> Back To Dashboard
+        </a>
+    </div>
+    <div class="col-md-6"></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Settings
+    </div>
+    <div class="card-body">
+        <form (submit)="onSumbit()">
+            <div class="form-group">
+                <label> 
+                    Allow Registration
+                </label>
+
+                <input 
+                    type="checkbox" 
+                    name="allowRegistration"
+                    (change)="setting.allowRegistration = !setting.allowRegistration"
+                    [checked]="setting.allowRegistration"
+                >
+            </div>
+
+            <div class="form-group">
+                <label> 
+                    Disable Balance on Add
+                </label>
+                
+                <input 
+                    type="checkbox" 
+                    name="disabledBalanceOnAdd"
+                    (change)="setting.disabledBalanceOnAdd = !setting.disabledBalanceOnAdd"
+                    [checked]="setting.disabledBalanceOnAdd"
+                >
+            </div>
+
+            <div class="form-group">
+                <label> 
+                    Disable Balance on Edit
+                </label>
+                
+                <input 
+                    type="checkbox" 
+                    name="disabledbalanceOnEdit"
+                    (change)="setting.disabledbalanceOnEdit = !setting.disabledbalanceOnEdit"
+                    [checked]="setting.disabledbalanceOnEdit"
+                >
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">
+                <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+            </button>
+        </form>
+    </div>
+</div>
